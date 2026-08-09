@@ -108,7 +108,11 @@
         <SubTree ID="Look at Table" _collapsed="true" />
         <SubTree ID="Take Wrist Camera Snapshot" _collapsed="true" />
       </Control>
-      <Decorator ID="ForceSuccess" _collapsed="false">
+      <Decorator
+        ID="ForceSuccess"
+        name="wtf - is it force success or pass-through running/force success."
+        _collapsed="false"
+      >
         <Decorator ID="KeepRunningUntilFailure" _collapsed="false">
           <Control ID="Sequence" name="TopLevelSequence" _collapsed="false">
             <SubTree
@@ -155,7 +159,6 @@
                 joint_trajectory_msg="{joint_trajectory_msg}"
                 controller_action_name="/joint_trajectory_admittance_controller/follow_joint_trajectory"
                 execution_pipeline="jtac"
-                absolute_force_torque_threshold=""
               />
             </Control>
             <Control ID="Sequence" name="Place in Tray" _collapsed="false">
@@ -220,7 +223,6 @@
                   controller_list_action_name="/controller_manager/list_controllers"
                   automatic_deactivation="true"
                   automatic_activation="true"
-                  deactivate_controllers=""
                 />
                 <Action
                   ID="CallTriggerService"
@@ -313,7 +315,6 @@
                   controller_list_action_name="/controller_manager/list_controllers"
                   automatic_deactivation="true"
                   automatic_activation="true"
-                  deactivate_controllers=""
                 />
               </Control>
             </Control>

@@ -1,32 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<root BTCPP_format="4" main_tree_to_execute="Move Flasks to Burners">
-  <!--//////////-->
+<root BTCPP_format="4" main_tree_to_execute="My Lab Automation">
   <BehaviorTree
-    ID="Move Flasks to Burners"
+    ID="My Lab Automation"
     _description="Example of picking and placing objects with orientation constraints and force-controlled placement"
     _favorite="true"
   >
     <Control ID="Sequence">
-      <SubTree ID="Open Gripper" />
+      <SubTree ID="Open Gripper" _collapsed="true" _skipIf="true" />
       <SubTree
         ID="Constrained Pick and Place Subtree"
+        name="Flask 1"
+        _collapsed="true"
+        _skipIf="true"
         pick="Flask 1 - Pick"
         place="Flask 1 - Place"
-        name="Flask 1"
       />
       <SubTree
         ID="Constrained Pick and Place Subtree"
+        name="Flask 2"
+        _collapsed="true"
+        _skipIf="true"
         pick="Flask 2 - Pick"
         place="Flask 2 - Place"
-        name="Flask 2"
       />
+      <SubTree ID="Push Button" name="Push Button" _collapsed="true" />
     </Control>
   </BehaviorTree>
   <TreeNodesModel>
-    <SubTree ID="Move Flasks to Burners">
+    <SubTree ID="My Lab Automation">
       <MetadataFields>
-        <Metadata subcategory="Application - Advanced Examples" />
         <Metadata runnable="true" />
+        <Metadata subcategory="Application - Advanced Examples" />
       </MetadataFields>
     </SubTree>
   </TreeNodesModel>

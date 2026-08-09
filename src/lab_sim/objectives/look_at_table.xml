@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <root BTCPP_format="4" main_tree_to_execute="Look at Table">
-  <!--//////////-->
   <BehaviorTree
     ID="Look at Table"
     _description="Move the arm to a position that faces the table surface"
@@ -13,14 +12,23 @@
         waypoint_name="Look at Table"
         joint_group_name="manipulator"
         use_all_planners="false"
+        acceleration_scale_factor="1.0"
+        controller_action_server="/joint_trajectory_admittance_controller/follow_joint_trajectory"
+        controller_names="joint_trajectory_admittance_controller"
+        execution_pipeline="jtac"
+        keep_orientation="false"
+        keep_orientation_tolerance="0.05"
+        link_padding="0.01"
+        seed="0"
+        velocity_scale_factor="1.0"
       />
     </Control>
   </BehaviorTree>
   <TreeNodesModel>
     <SubTree ID="Look at Table">
       <MetadataFields>
-        <Metadata subcategory="Application - Basic Examples" />
         <Metadata runnable="true" />
+        <Metadata subcategory="Application - Basic Examples" />
       </MetadataFields>
     </SubTree>
   </TreeNodesModel>

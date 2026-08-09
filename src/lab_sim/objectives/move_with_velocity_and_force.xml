@@ -32,7 +32,6 @@
         controller_list_action_name="/controller_manager/list_controllers"
         automatic_deactivation="true"
         automatic_activation="true"
-        deactivate_controllers=""
       />
       <Action
         ID="CallTriggerService"

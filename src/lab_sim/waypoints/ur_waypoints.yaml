@@ -193,6 +193,49 @@
     - wrist_2_joint
     - wrist_3_joint
     position:
+    - 0.4304390605935317
+    - -0.4378567680480089
+    - -0.32506040849446244
+    - -1.3786813884060156
+    - 1.5681700648384158
+    - -1.961524554294909
+    - -1.720721876348498
+    - 0.16537484166715177
+    velocity: []
+  multi_dof_joint_state:
+    header:
+      frame_id: ''
+      stamp:
+        nanosec: 0
+        sec: 0
+    joint_names: []
+    transforms: []
+    twist: []
+    wrench: []
+  name: Above Tray Place Simple
+- description: ''
+  favorite: false
+  joint_group_names:
+  - gripper
+  - linear_actuator
+  - manipulator
+  joint_state:
+    effort: []
+    header:
+      frame_id: ''
+      stamp:
+        nanosec: 0
+        sec: 0
+    name:
+    - robotiq_85_left_knuckle_joint
+    - linear_rail_joint
+    - shoulder_pan_joint
+    - shoulder_lift_joint
+    - elbow_joint
+    - wrist_1_joint
+    - wrist_2_joint
+    - wrist_3_joint
+    position:
     - 0.447969045650818
     - 0.6474400118806204
     - -0.06033511474114565
@@ -729,6 +772,49 @@
     twist: []
     wrench: []
   name: Look at Table
+- description: Location for the robot to go look at the tray.
+  favorite: false
+  joint_group_names:
+  - gripper
+  - linear_actuator
+  - manipulator
+  joint_state:
+    effort: []
+    header:
+      frame_id: ''
+      stamp:
+        nanosec: 0
+        sec: 0
+    name:
+    - robotiq_85_left_knuckle_joint
+    - linear_rail_joint
+    - shoulder_pan_joint
+    - shoulder_lift_joint
+    - elbow_joint
+    - wrist_1_joint
+    - wrist_2_joint
+    - wrist_3_joint
+    position:
+    - 0.05510852026866443
+    - -0.7189055036814227
+    - 0.19457050986833238
+    - -2.087568874212717
+    - 1.7974325760598713
+    - -1.6887096601663198
+    - -1.627206520781829
+    - 0.19188249774293678
+    velocity: []
+  multi_dof_joint_state:
+    header:
+      frame_id: ''
+      stamp:
+        nanosec: 0
+        sec: 0
+    joint_names: []
+    transforms: []
+    twist: []
+    wrench: []
+  name: Look at Tray
 - description: ''
   favorite: false
   joint_group_names:
@@ -901,7 +987,7 @@
     twist: []
     wrench: []
   name: Predrop Bottles Right
-- description: Location for the robot to go look at the tray.
+- description: ''
   favorite: false
   joint_group_names:
   - gripper
@@ -924,14 +1010,14 @@
     - wrist_2_joint
     - wrist_3_joint
     position:
-    - 0.05510852026866443
-    - -0.7189055036814227
-    - 0.19457050986833238
-    - -2.087568874212717
-    - 1.7974325760598713
-    - -1.6887096601663198
-    - -1.627206520781829
-    - 0.19188249774293678
+    - 0.052556448066187166
+    - -0.39122306418380015
+    - -0.43481424418478487
+    - -0.9744548321205811
+    - 1.5958431625224927
+    - -2.1867806138047623
+    - -1.5856078172320407
+    - 0.09651925256066936
     velocity: []
   multi_dof_joint_state:
     header:
@@ -943,7 +1029,7 @@
     transforms: []
     twist: []
     wrench: []
-  name: Look at Tray
+  name: Tray Place Simple
 - description: ''
   favorite: false
   joint_group_names:
@@ -1139,14 +1225,14 @@
     - wrist_2_joint
     - wrist_3_joint
     position:
-    - 0.4304390605935317
-    - -0.4378567680480089
-    - -0.32506040849446244
-    - -1.3786813884060156
-    - 1.5681700648384158
-    - -1.961524554294909
-    - -1.720721876348498
-    - 0.16537484166715177
+    - 0.052556237277027816
+    - 0.06395668412398313
+    - 0.11338227566090087
+    - -1.5749451795895577
+    - 2.204157709159953
+    - -2.211346712626316
+    - -1.5595010510521787
+    - 0.11441824886952183
     velocity: []
   multi_dof_joint_state:
     header:
@@ -1158,8 +1244,8 @@
     transforms: []
     twist: []
     wrench: []
-  name: Above Tray Place Simple
-- description: ''
+  name: above bottle
+- description: you pick da bottle
   favorite: false
   joint_group_names:
   - gripper
@@ -1182,14 +1268,14 @@
     - wrist_2_joint
     - wrist_3_joint
     position:
-    - 0.052556448066187166
-    - -0.39122306418380015
-    - -0.43481424418478487
-    - -0.9744548321205811
-    - 1.5958431625224927
-    - -2.1867806138047623
-    - -1.5856078172320407
-    - 0.09651925256066936
+    - 0.05255623727702784
+    - 0.06930345960468248
+    - 0.10414685775078258
+    - -1.2729964984486848
+    - 2.3362273318721747
+    - -2.645257615397331
+    - -1.5593968755820673
+    - 0.10518283166508732
     velocity: []
   multi_dof_joint_state:
     header:
@@ -1201,4 +1287,4 @@
     transforms: []
     twist: []
     wrench: []
-  name: Tray Place Simple
+  name: bottle pick
