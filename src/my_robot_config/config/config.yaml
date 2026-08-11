@@ -1,0 +1,6 @@
+based_on_package: lab_sim
+objectives:
+  objective_library_paths:
+    example_objective:
+      package_name: "my_robot_config"
+      relative_path: "objectives"

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root
+  BTCPP_format="4"
+  main_tree_to_execute="Get Bottle Pose from AprilTag with new name"
+>
+  <BehaviorTree
+    ID="Get Bottle Pose from AprilTag with new name"
+    _description=""
+    _favorite="false"
+  >
+    <Control ID="Sequence" name="Sequence">
+      <SubTree
+        ID="Take Wrist Camera Image"
+        name="Take Wrist Camera Image"
+        _collapsed="true"
+        wrist_camera_image="{wrist_camera_image}"
+        wrist_camera_info="{wrist_camera_info}"
+      />
+      <SubTree
+        ID="Get AprilTag Pose from Image"
+        name="Get AprilTag Pose from Image"
+        _collapsed="true"
+        camera_info="{wrist_camera_info}"
+        detection_pose="{detection_pose}"
+        image="{wrist_camera_image}"
+      />
+      <Action
+        ID="TransformPose"
+        name="TransformPose"
+        marker_lifetime="0.000000"
+        output_pose="{grasp_pose}"
+        marker_size="0.100000"
+        marker_text=""
+        visualize_pose="false"
+        quaternion_xyzw="1.000; 0.000; 0.000; 0.000"
+        translation_xyz="0.000000;0.000000;0.000000"
+        input_pose="{detection_pose}"
+      />
+      <Action
+        ID="TransformPose"
+        name="TransformPose"
+        marker_lifetime="0.000000"
+        output_pose="{approach_pose}"
+        marker_size="0.100000"
+        marker_text=""
+        visualize_pose="false"
+        quaternion_xyzw="0.000000;0.000000;0.000000;1.000000"
+        translation_xyz="0.000000;0.000000;-0.075"
+        input_pose="{grasp_pose}"
+      />
+      <Action
+        ID="VisualizePose"
+        name="VisualizePose"
+        marker_text=""
+        marker_name="other_pose"
+        marker_lifetime="0.000000"
+        marker_size="0.100000"
+        pose="{approach_pose}"
+      />
+      <Action
+        ID="VisualizePose"
+        name="VisualizePose"
+        marker_text=""
+        marker_name="pose"
+        marker_lifetime="0.000000"
+        marker_size="0.100000"
+        pose="{grasp_pose}"
+      />
+    </Control>
+  </BehaviorTree>
+  <TreeNodesModel>
+    <SubTree ID="Get Bottle Pose from AprilTag with new name">
+      <MetadataFields>
+        <Metadata runnable="false" />
+        <Metadata subcategory="Can I just Type one" />
+      </MetadataFields>
+      <inout_port
+        name="grasp_pose"
+        default="{grasp_pose}"
+        type="geometry_msgs::msg::PoseStamped"
+      >
+        Target pose of the bottle, mang
+      </inout_port>
+    </SubTree>
+  </TreeNodesModel>
+</root>

@@ -103,7 +103,9 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
         less \
         gdb \
         nano \
-        tmux
+        tmux \
+	python3-tk \
+	tree
 
 # Set up the user's .bashrc file and shell.
 CMD ["/usr/bin/bash"]

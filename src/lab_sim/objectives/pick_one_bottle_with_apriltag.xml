@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root BTCPP_format="4" main_tree_to_execute="Pick One bottle with AprilTag">
+  <BehaviorTree
+    ID="Pick One bottle with AprilTag"
+    _description="Use fiducial markers to detect and pick a bottle"
+    _favorite="false"
+  >
+    <Control ID="Sequence" name="TopLevelSequence">
+      <SubTree ID="Open Gripper" name="Open Gripper" _collapsed="true" />
+      <SubTree ID="Look at Table" name="Look at Table" _collapsed="true" />
+      <Action ID="ClearSnapshot" name="ClearSnapshot" />
+      <SubTree
+        ID="Take Wrist Camera Snapshot"
+        name="Take Wrist Camera Snapshot"
+        _collapsed="true"
+      />
+      <SubTree
+        ID="Get Bottle Pose from AprilTag with new name"
+        name="Get Bottle Pose from AprilTag"
+        _collapsed="true"
+        grasp_pose="{grasp_pose}"
+      />
+      <SubTree
+        ID="Pick from Pose"
+        name="Pick from Pose"
+        _collapsed="true"
+        approach_distance="0.075"
+        grasp_pose="{grasp_pose}"
+        retract_xyz="0;0;-0.3"
+      />
+      <Control ID="Fallback" name="Fallback">
+        <Control ID="Sequence" name="Sequence">
+          <SubTree
+            ID="Move to Waypoint"
+            name="Move to Waypoint"
+            _collapsed="true"
+            acceleration_scale_factor="1.0"
+            controller_action_server="/joint_trajectory_admittance_controller/follow_joint_trajectory"
+            controller_names="joint_trajectory_admittance_controller"
+            execution_pipeline="jtac"
+            joint_group_name="manipulator"
+            keep_orientation="false"
+            keep_orientation_tolerance="0.05"
+            link_padding="0.01"
+            seed="0"
+            velocity_scale_factor="1.0"
+            waypoint_name="Above Tray Place Simple"
+          />
+          <SubTree
+            ID="Move to Waypoint"
+            name="Move to Waypoint"
+            _collapsed="true"
+            acceleration_scale_factor="1.0"
+            controller_action_server="/joint_trajectory_admittance_controller/follow_joint_trajectory"
+            controller_names="joint_trajectory_admittance_controller"
+            execution_pipeline="jtac"
+            joint_group_name="manipulator"
+            keep_orientation="false"
+            keep_orientation_tolerance="0.05"
+            link_padding="0.01"
+            seed="0"
+            velocity_scale_factor="1.0"
+            waypoint_name="Tray Place Simple"
+          />
+          <SubTree ID="Open Gripper" name="Open Gripper" _collapsed="true" />
+          <SubTree
+            ID="Move to Waypoint"
+            name="Move to Waypoint"
+            _collapsed="true"
+            acceleration_scale_factor="1.0"
+            controller_action_server="/joint_trajectory_admittance_controller/follow_joint_trajectory"
+            controller_names="joint_trajectory_admittance_controller"
+            execution_pipeline="jtac"
+            joint_group_name="manipulator"
+            keep_orientation="false"
+            keep_orientation_tolerance="0.05"
+            link_padding="0.01"
+            seed="0"
+            velocity_scale_factor="1.0"
+            waypoint_name="Above Tray Place Simple"
+          />
+        </Control>
+        <SubTree
+          ID="Request Teleoperation"
+          name="Request Teleoperation"
+          _collapsed="true"
+          controller_action_server="/joint_trajectory_admittance_controller/follow_joint_trajectory"
+          enable_user_interaction="true"
+          max_ik_solutions="8"
+          max_mtc_solutions="1"
+          initial_teleop_mode="3"
+          joint_trajectory_controller_name="joint_trajectory_admittance_controller"
+          user_interaction_prompt="Place it manually, jerk"
+          default_planning_group="manipulator"
+          default_ik_frame="grasp_link"
+          link_padding="0.01"
+          execution_pipeline="jtac"
+        />
+      </Control>
+      <SubTree ID="Open Gripper" name="Open Gripper" _collapsed="true" />
+    </Control>
+  </BehaviorTree>
+  <TreeNodesModel>
+    <SubTree ID="Pick One bottle with AprilTag">
+      <MetadataFields>
+        <Metadata runnable="true" />
+        <Metadata subcategory="Can I just Type one" />
+      </MetadataFields>
+    </SubTree>
+  </TreeNodesModel>
+</root>

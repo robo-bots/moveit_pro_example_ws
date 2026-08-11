@@ -6,12 +6,11 @@
     _favorite="true"
   >
     <Control ID="Sequence">
-      <SubTree ID="Open Gripper" _collapsed="true" _skipIf="true" />
+      <SubTree ID="Open Gripper" _collapsed="true" />
       <SubTree
         ID="Constrained Pick and Place Subtree"
         name="Flask 1"
         _collapsed="true"
-        _skipIf="true"
         pick="Flask 1 - Pick"
         place="Flask 1 - Place"
       />
@@ -19,7 +18,6 @@
         ID="Constrained Pick and Place Subtree"
         name="Flask 2"
         _collapsed="true"
-        _skipIf="true"
         pick="Flask 2 - Pick"
         place="Flask 2 - Place"
       />

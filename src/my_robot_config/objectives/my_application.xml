@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root BTCPP_format="4" main_tree_to_execute="My Application">
+  <BehaviorTree
+    ID="My Application"
+    _description="Example of cycling through the min and max limits of a single joint, for hardware testing"
+    _favorite="true"
+  >
+    <Decorator ID="RepeatUnlessFailureEachTick" num_cycles="-1">
+      <Control ID="Sequence">
+        <!--If you use two waypoints that have identical joint values, except for one joint, you can use this Objective as a way to test a single joint repeatedly. This is useful for things like hardware diagnostics and hardware bringup.-->
+        <Action
+          ID="MyBehavior"
+          name="MyBehavior"
+          velocity_scale_factor="{my_velocity_scale_factor}"
+          velocity_max="1"
+          velocity_min="0.5"
+        />
+        <SubTree
+          ID="Move to Waypoint"
+          _collapsed="false"
+          waypoint_name="Wrist 2 Max"
+          joint_group_name="manipulator"
+          controller_names="joint_trajectory_admittance_controller"
+          link_padding="0.0"
+          acceleration_scale_factor="1.0"
+          controller_action_server="/joint_trajectory_admittance_controller/follow_joint_trajectory"
+          keep_orientation="false"
+          keep_orientation_tolerance="0.05"
+          seed="0"
+          velocity_scale_factor="{my_velocity_scale_factor}"
+          execution_pipeline="jtac"
+        />
+        <SubTree
+          ID="Move to Waypoint"
+          _collapsed="false"
+          waypoint_name="Wrist 2 Min"
+          joint_group_name="manipulator"
+          controller_names="joint_trajectory_admittance_controller"
+          link_padding="0.0"
+          acceleration_scale_factor="1.0"
+          controller_action_server="/joint_trajectory_admittance_controller/follow_joint_trajectory"
+          keep_orientation="false"
+          keep_orientation_tolerance="0.05"
+          seed="0"
+          velocity_scale_factor="{my_velocity_scale_factor}"
+          execution_pipeline="jtac"
+        />
+      </Control>
+    </Decorator>
+  </BehaviorTree>
+  <TreeNodesModel>
+    <SubTree ID="My Application">
+      <MetadataFields>
+        <Metadata runnable="true" />
+        <Metadata subcategory="Application - Basic Examples" />
+      </MetadataFields>
+    </SubTree>
+  </TreeNodesModel>
+</root>
